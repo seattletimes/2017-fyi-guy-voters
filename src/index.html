@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <%= t.include("partials/_head.html") %>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+
+    <responsive-child>
+      <main class="interactive">
+        <div class="title"><h1>Washington tops nation in turned-off voters</h1></div>
+        <div class="chatter">In Washington state, voters' No. 1 reason for not casting a ballot in November was simple: They were disgusted with their choices, according to new census data. In fact, Washington had the highest percentage of nonvoters who cited dislike of the candidates as their reason for sitting out the election.</div>
+
+        <div class="buttons">
+          <button class="mode-select" data-mode="haters_2016">2016</button>
+          <button class="mode-select" data-mode="delta">Change from 2012</button>
+        </div>
+
+        <div class="map-container">
+          <leaflet-map>
+            <tile-layer layer="cartoPositron"></tile-layer>
+          </leaflet-map>
+        </div>
+
+        <div class="legend">
+          <span class="percentages">
+            <h1 class="legend-title">Voters who did not like candidates or campaign issues</h1>
+              <ul class="legend-items">
+              <li><span class="block" style="background-color: #08519c;"></span> > 31%</li>
+              <li><span class="block" style="background-color: #3182bd;"></span> 30 &ndash; 26%</li>
+              <li><span class="block" style="background-color: #3182bd;"></span> 25 &ndash; 21%</li>
+              <li><span class="block" style="background-color: #6baed6;"></span> 20 &ndash; 16%</li>
+              <li><span class="block" style="background-color: #9ecae1"></span> 15 &ndash; 11%</li>
+              <li><span class="block" style="background-color: #eff3ff;"></span> < 10%</li>
+            </ul>
+          </span>
+
+          <span class="change">
+            <h1 class="legend-title">Change (in percentage points)</h1>
+              <ul class="legend-items">
+                <li><span class="block" style="background-color: #990000;"></span> > 26</li>
+                <li><span class="block" style="background-color: #d7301f;"></span> 25 &ndash; 21</li>
+                <li><span class="block" style="background-color: #ef6548;"></span> 20 &ndash; 16</li>
+                <li><span class="block" style="background-color: #fc8d59"></span> 15 &ndash; 11</li>
+                <li><span class="block" style="background-color: #fdbb84;"></span> 10 &ndash; 0</li>
+                <li><span class="block" style="background-color: #fef0d9;"></span> < 0</li>
+              </ul>
+          </span>
+
+        </div>
+
+        <div class="credits">Source: U.S. Census Bureau, Current Population Survey
+        <div><span class="by">VANESSA MARTINEZ AND THOMAS WILBURN / THE SEATTLE TIMES</span>
+        </div>
+      </main>
+    </responsive-child>
+
+    
+
+    <script src="app.js" async></script>
+    <% if (json.project.production) { %>
+    <%= !json.project.embedded ? t.include("partials/_foot.html") : "" %>
+    <%= t.include("partials/_workHere.html") %>
+    <% } %>
+  </body>
+</html>
